@@ -17,6 +17,12 @@
 
 ## Installation
 
+* npm install
+  * chalk
+  * inquirer
+  * socket.io-client
+  * standard
+
 ## Usage
 
 ## The Team
