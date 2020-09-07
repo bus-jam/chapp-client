@@ -8,8 +8,10 @@ let os = require('os')
 let username = null;
 const readline = require('readline');
 const inquirer = require('inquirer');
+const repl = require('repl');
 
-// const rl = readline.createInterface(process.stdin, process.stdout)
+const ui = new inquirer.ui.BottomBar();
+const rl = readline.createInterface(process.stdin, process.stdout)
 const login = {
   type: 'list',
   name: 'answer',
@@ -29,7 +31,19 @@ const signinPassword = {
   message: 'Enter your password',
 }
 
+const menu = {
+  type: 'list',
+  name: 'room',
+  choices: [
+    
+  ]// socket.emit('getrooms'),
+}
 
+const message = {
+  type: 'input',
+  name: 'cmd',
+  message: '',
+}
 
 socket.on('disconnect', () => {
     socket.emit('disconnect');
@@ -40,32 +54,35 @@ socket.on('connect', () => {
     inquirer.prompt([login]).then(answers => {
       if(answers.answer === 'sign-in'){
         inquirer.prompt([signinUsername,signinPassword]).then(user => {
-          socket.emit('signin', user)
+          socket.emit('signin', user);
+          ui.log.write(chalk.red(`=== start chatting ${user.username} ===`));
+          inquirer.prompt(message).then(message => {
+            console.log('i am here', message);
+            const { cmd } = message;
+            socket.send({cmd, username:'null'})
+          });
+          
         });
       } else {
-        inquirer.prompt([signinUsername,signinPassword,signinPassword]).then(user => {
-          socket.emit('signup', user)
+        inquirer.prompt([signinUsername,signinPassword]).then(user => {
+          socket.emit('signup', user);
         });
       }
-    })
-   
-   
-    // console.log(chalk.red(`=== start chatting ${username} ===`));
-    // rl.question(`Hello, sign in or sign up?`, (cmd) => {
-    //   console.log('cmd', cmd)
-    //   if(cmd === 'sign in'){
-    //     const signInData = {
-    //       username: rl.question('Please enter your username:', name => name),
-    //       password: rl.question('Please enter a password:', pw => pw),
-    //     }
-    //     socket.send('sign-in', signInData)
-        
-    //   }
-    // })
+    });
 });
-socket.on('key', key => {
-  console.log(key)
-})
+
+socket.on('invalid-login', () => {
+  // populate me later
+});
+
+
+socket.on('connected', (username) => {
+  ui.log.write(chalk.red(`=== start chatting ${username} ===`));
+});
+
+socket.on('join', (user, room) => {
+  console.log(chalk.red(`${user} joined the room ${room}`));
+});
 
 socket.on('message', data => {
     const { cmd, username } = data;
@@ -78,22 +95,11 @@ socket.on('toxic', data => {
   console.log(chalk.red(`SERVER: ${cmd.split('\n')[0]}`))  
 });
 
-// rl.on('line', (line) => {
-// socket.send({line, username})
-// rl.prompt(true)
-// });
-// repl.start({
+//   repl.start({
 //     prompt: '',
 //     terminal: false,
 //     eval: (cmd) => {
 //       socket.send({cmd, username});
-    
 //     }
-  
 // });
 
-
-// rl.question('What is your ;', (name) => {
-//   let message = `${name} has joined the chat`;
-//   rl.prompt(true);
-// });
