@@ -1,45 +1,21 @@
+#!/usr/bin/env node
 'use strict'
 // ================================================================
 // Required Libraries
 const chalk = require('chalk')
-const socket = require('socket.io-client')('http://localhost:3002')
+const socket = require('socket.io-client')('http://localhost:3000')
 const inquirer = require('inquirer')
-
+const {
+  login,
+  signinUsername,
+  signinPassword,
+  menu,
+  message
+} = require('./utils/questions')
 // ================================================================
 // Establish Objects
 
 // TODO: maybe modularize these question objects and require them in to clean this up
-
-const login = {
-  type: 'list',
-  name: 'answer',
-  message: 'Sign-in or sign-up',
-  choices: ['sign-in', 'sign-up']
-}
-
-const signinUsername = {
-  type: 'input',
-  name: 'username',
-  message: 'Enter your username'
-}
-
-const signinPassword = {
-  type: 'password',
-  name: 'password',
-  message: 'Enter your password'
-}
-
-const menu = {
-  type: 'list',
-  name: 'room',
-  choices: []// socket.emit('getrooms'),
-}
-
-const message = {
-  type: 'input',
-  name: 'chat',
-  message: ''
-}
 
 // ================================================================
 // Disconnect Event
@@ -48,9 +24,8 @@ socket.on('disconnect', () => {
   socket.emit('disconnect')
 })
 
-socket.on('connect', loginOrSignup)
 
-function loginOrSignup () {
+const loginOrSignup =  () => {
   inquirer.prompt([login]).then(answers => {
     if (answers.answer === 'sign-in') {
       inquirer.prompt([signinUsername, signinPassword]).then(user => {
@@ -64,17 +39,21 @@ function loginOrSignup () {
   })
 }
 
-function listenForChat () {
+const listenForChat =  () => {
   inquirer.prompt(message).then(message => {
     const cmd = message.chat
     if (cmd[0] === '/') {
       handleCommand(cmd)
+    } else if (!cmd.length) {
+      console.log('here')
+      listenForChat()
     } else {
       socket.send({ cmd, username: socket.username })
       listenForChat()
     }
   })
 }
+socket.on('connect', loginOrSignup)
 
 // ================================================================
 // Invalid Login Response - Loop back to login/signup prompt
@@ -139,7 +118,7 @@ socket.on('invalid room', error => {
 // ================================================================
 // Command Switch Block
 
-const handleCommand = (cmd) => {
+const handleCommand = (cmd) => { 
   const command = cmd.match(/[a-z]+\b/)[0]
   const args = cmd.match(/[a-z-]+\b/g)[1]
   const message = cmd.substr(command.length + args.length + 3, cmd.length)
