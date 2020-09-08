@@ -1,8 +1,9 @@
 {
-  "name": "chapp-client",
+  "name": "chapp",
   "version": "0.2.0",
-  "description": "[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://github.com/bus-jam/chapp-client/blob/staging/license)",
+  "description": "A socket io driven command line chat app. Our server uses TensorFlow to moderate messages and try to stop toxicity and bad language.",
   "main": "index.js",
+  "bin": { "chapp": "index.js" }, 
   "scripts": {
     "test": "standard"
   },
@@ -10,9 +11,29 @@
     "type": "git",
     "url": "git+https://github.com/bus-jam/chapp-client.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "chat",
+    "command line"
+  ],
+  "contributors": [
+    {
+      "name": "Sean Murray",
+      "url": "https://github.com/seanjmurray"
+    },
+    {
+      "name": "Matt Herriges",
+      "url": "https://github.com/herrigesmt"
+    },
+    {
+      "name": "Jennifer Chinzi",
+      "url": "https://github.com/jchinzi"
+    },
+    {
+      "name": "Blake Romero",
+      "url": "https://github.com/blakerom"
+    }
+  ],
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/bus-jam/chapp-client/issues"
   },
