@@ -8,12 +8,12 @@ class Questions {
       message: 'Sign-in or sign-up',
       choices: ['sign-in', 'sign-up']
     },
-    this.signinUsername = {
+    this.signInUsername = {
       type: 'input',
       name: 'username',
       message: 'Enter your username'
     },
-    this.signinPassword = {
+    this.signInPassword = {
       type: 'password',
       name: 'password',
       message: 'Enter your password'
@@ -23,6 +23,16 @@ class Questions {
       name: 'room',
       choices: []// socket.emit('getrooms'),
     },
+    this.users = {
+      type: 'list',
+      name: 'users',
+      choices: []// socket.emit('getusers'),
+    },
+    this.whisper = {
+      type: 'input',
+      name: 'chat',
+      message: ''
+    }
     this.message = {
       type: 'input',
       name: 'chat',
