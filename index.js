@@ -77,5 +77,4 @@ socket.on('unavailable', error => {
   unavailableHandler(error, listenForChat)
 })
 
-  listenForChat()
 
