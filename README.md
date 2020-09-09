@@ -11,6 +11,7 @@
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![Version](https://img.shields.io/badge/Version-0.2.0-brightgreen.svg)](https://github.com/bus-jam/chapp-client#readme)
 [![Build Status](https://travis-ci.com/bus-jam/chapp-client.svg?branch=master)](https://travis-ci.com/bus-jam/chapp-client)
+[![Maintainability](https://api.codeclimate.com/v1/badges/1dce88fe3053097d08ef/maintainability)](https://codeclimate.com/github/bus-jam/chapp-client/maintainability)
 
 ## Goal
 

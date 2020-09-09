@@ -18,7 +18,7 @@ class Questions {
       name: 'password',
       message: 'Enter your password'
     },
-    this.menu = {
+    this.roomMenu = {
       type: 'list',
       name: 'room',
       choices: []// socket.emit('getrooms'),

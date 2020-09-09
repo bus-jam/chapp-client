@@ -26,7 +26,10 @@ const {
   messageHandler,
   whisperHandler,
   toxicHandler,
-  unavailableHandler
+  unavailableHandler,
+  handleWhisperMenu,
+  handleJoinMenu,
+  handleJoined
 } = handlers.eventhandlers;
 
 let login = false;
@@ -53,8 +56,8 @@ socket.on('connected', username => {
   connected(username, listenForChat)
 })
 
-socket.on('joined', () => {
-  listenForChat()
+socket.on('joined', room => {
+  handleJoined(room)
 })
 
 socket.on('message', data => {
@@ -77,4 +80,10 @@ socket.on('unavailable', error => {
   unavailableHandler(error, listenForChat)
 })
 
+socket.on('whispermenu', list => {
+  handleWhisperMenu(list, listenForChat)
+})
 
+socket.on('joinmenu', list => {
+  handleJoinMenu(list, listenForChat)
+})
