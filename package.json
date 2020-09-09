@@ -41,6 +41,7 @@
   },
   "homepage": "https://github.com/bus-jam/chapp-client#readme",
   "dependencies": {
+    "blessed": "^0.1.81",
     "chalk": "^4.1.0",
     "inquirer": "^7.3.3",
     "socket.io-client": "^2.3.0",

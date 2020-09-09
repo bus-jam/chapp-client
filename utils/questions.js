@@ -25,12 +25,12 @@ class Questions {
     },
     this.users = {
       type: 'list',
-      name: 'users',
+      name: 'user',
       choices: []// socket.emit('getusers'),
     },
     this.whisper = {
       type: 'input',
-      name: 'chat',
+      name: 'whisper',
       message: ''
     }
     this.message = {
