@@ -18,19 +18,19 @@ class Questions {
       name: 'password',
       message: 'Enter your password'
     },
-    this.menu = {
+    this.roomMenu = {
       type: 'list',
       name: 'room',
       choices: []// socket.emit('getrooms'),
     },
     this.users = {
       type: 'list',
-      name: 'users',
+      name: 'user',
       choices: []// socket.emit('getusers'),
     },
     this.whisper = {
       type: 'input',
-      name: 'chat',
+      name: 'whisper',
       message: ''
     }
     this.message = {
