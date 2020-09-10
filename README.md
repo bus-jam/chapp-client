@@ -10,7 +10,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://github.com/bus-jam/chapp-client/blob/staging/license)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![Version](https://img.shields.io/badge/Version-1.2.1-brightgreen.svg)](https://github.com/bus-jam/chapp-client#readme)
-[![Build Status](https://travis-ci.com/bus-jam/chapp-client.svg?branch=master)](https://travis-ci.com/bus-jam/chapp-client)
+[![Build Status](https://travis-ci.com/bus-jam/chapp-client.svg?branch=staging)](https://travis-ci.com/bus-jam/chapp-client)
 [![Maintainability](https://api.codeclimate.com/v1/badges/1dce88fe3053097d08ef/maintainability)](https://codeclimate.com/github/bus-jam/chapp-client/maintainability)
 
 ## Goal
