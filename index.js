@@ -36,7 +36,6 @@ socket.on('invalid-login', error => {
 })
 
 socket.on('connected', username => {
-  login = true;
   socket.username = username;
   connected(username, listenForChat)
 })
