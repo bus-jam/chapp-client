@@ -18,7 +18,7 @@ class Questions {
       name: 'password',
       message: 'Enter your password'
     }
-    this.message = {
+    this.messagePrompt = {
       type: 'input',
       name: 'chat',
       message: ''

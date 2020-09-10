@@ -8,14 +8,15 @@ const { eventhandlers } = require('./lib/handler')
 const {
   listenForChat,
   loginOrSignup,
-  invalidLoginHandler,
   connected,
+  invalidLoginHandler,
   messageHandler,
   whisperHandler,
   toxicHandler,
   errorHandler,
-  handleMenu,
-  handleJoined
+  menuHandler,
+  joinedHandler,
+  helpHandler
 } = eventhandlers
 
 const userPrompt = [
@@ -47,7 +48,7 @@ socket.on('connected', username => {
 })
 
 socket.on('joined', room => {
-  handleJoined(room)
+  joinedHandler(room)
 })
 
 socket.on('message', data => {
@@ -71,9 +72,13 @@ socket.on('unavailable', error => {
 })
 
 socket.on('whispermenu', list => {
-  handleMenu(list, userPrompt)
+  menuHandler(list, userPrompt)
 })
 
 socket.on('joinmenu', list => {
-  handleMenu(list, roomPrompt)
+  menuHandler(list, roomPrompt)
+})
+
+socket.on('printhelp', count => {
+  helpHandler(count)
 })
