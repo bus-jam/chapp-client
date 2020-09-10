@@ -9,7 +9,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://github.com/bus-jam/chapp-client/blob/staging/license)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-[![Version](https://img.shields.io/badge/Version-1.1.1-brightgreen.svg)](https://github.com/bus-jam/chapp-client#readme)
+[![Version](https://img.shields.io/badge/Version-1.2.1-brightgreen.svg)](https://github.com/bus-jam/chapp-client#readme)
 [![Build Status](https://travis-ci.com/bus-jam/chapp-client.svg?branch=master)](https://travis-ci.com/bus-jam/chapp-client)
 [![Maintainability](https://api.codeclimate.com/v1/badges/1dce88fe3053097d08ef/maintainability)](https://codeclimate.com/github/bus-jam/chapp-client/maintainability)
 
@@ -41,6 +41,10 @@ Joins specified room.
 
 Sends a private message to the specified user.
 
+    /help
+
+Lists all commands and how to use them.    
+
     /exit
 
 Exits the app and disconnects from server.
@@ -58,4 +62,5 @@ Exits the app and disconnects from server.
 * 2020-09-07 V 0.2.0 Add basic menu and prompts, handle sign-in/up events and saving users to database, private messages, and room switching.
 * 2020-09-09 V 1.0.0 Finish basic app functionality and deploy package to NPM
 * 2020-09-10 V 1.1.1 Refactor to clean up repetitive code
+* 2020-09-10 V 1.2.1 Add help command, clean codebase, visual updates
 
