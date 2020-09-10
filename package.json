@@ -7,7 +7,7 @@
     "chapp": "index.js"
   },
   "scripts": {
-    "test": "jest --verbose --coverage --detectOpenHandles"
+    "test": "jest --verbose --coverage --forceExit"
   },
   "repository": {
     "type": "git",
