@@ -3,20 +3,8 @@
 // ================================================================
 // Required Libraries
 
-const chalk = require('chalk')
-// const socket = require('socket.io-client')('http://localhost:3000')
 const { socket } = require('./lib/handler')
-const inquirer = require('inquirer')
-// const {
-//   login,
-//   signInUsername,
-//   signInPassword,
-//   menu,
-//   message,
-//   users,
-//   whisper
-// } = require('./utils/questions')
-const handlers = require('./lib/handler')
+const { eventhandlers } = require('./lib/handler')
 const {
   listenForChat,
   loginOrSignup,
@@ -30,9 +18,8 @@ const {
   handleWhisperMenu,
   handleJoinMenu,
   handleJoined
-} = handlers.eventhandlers;
+} = eventhandlers;
 
-let login = false;
 // ================================================================
 // Socket Listeners
 
@@ -41,7 +28,6 @@ socket.on('disconnect', () => {
 })
 
 socket.on('connect', () => {
-  // console.log('here')
   loginOrSignup()
 })
 
@@ -50,7 +36,6 @@ socket.on('invalid-login', error => {
 })
 
 socket.on('connected', username => {
-  // console.log('I heard')
   login = true;
   socket.username = username;
   connected(username, listenForChat)
