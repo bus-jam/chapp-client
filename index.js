@@ -9,17 +9,23 @@ const {
   listenForChat,
   loginOrSignup,
   invalidLoginHandler,
-  invalidRoomHandler,
   connected,
   messageHandler,
   whisperHandler,
   toxicHandler,
-  unavailableHandler,
-  handleWhisperMenu,
-  handleJoinMenu,
+  errorHandler,
+  handleMenu,
   handleJoined
-} = eventhandlers;
+} = eventhandlers
 
+const userPrompt = [
+  'List of connected users',
+  'To direct message a user, type "/whisper <username> <message>"'
+]
+const roomPrompt = [
+  'List of rooms',
+  'To join a separate room, type "/join <room name>"'
+]
 // ================================================================
 // Socket Listeners
 
@@ -36,7 +42,7 @@ socket.on('invalid-login', error => {
 })
 
 socket.on('connected', username => {
-  socket.username = username;
+  socket.username = username
   connected(username, listenForChat)
 })
 
@@ -45,29 +51,29 @@ socket.on('joined', room => {
 })
 
 socket.on('message', data => {
-  messageHandler(data, listenForChat)
+  messageHandler(data)
 })
 
 socket.on('whisper', data => {
-  whisperHandler(data, listenForChat)
+  whisperHandler(data)
 })
 
 socket.on('toxic', data => {
-  toxicHandler(data, listenForChat)
+  toxicHandler(data)
 })
 
 socket.on('invalid room', data => {
-  invalidRoomHandler(data, listenForChat)
+  errorHandler(data)
 })
 
 socket.on('unavailable', error => {
-  unavailableHandler(error, listenForChat)
+  errorHandler(error)
 })
 
 socket.on('whispermenu', list => {
-  handleWhisperMenu(list, listenForChat)
+  handleMenu(list, userPrompt)
 })
 
 socket.on('joinmenu', list => {
-  handleJoinMenu(list, listenForChat)
+  handleMenu(list, roomPrompt)
 })
