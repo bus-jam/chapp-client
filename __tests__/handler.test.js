@@ -3,8 +3,6 @@
 const { socket, ui } = require('../lib/handler')
 const { eventhandlers } = require('../lib/handler')
 const {
-  listenForChat,
-  loginOrSignup,
   connected,
   invalidLoginHandler,
   messageHandler,
