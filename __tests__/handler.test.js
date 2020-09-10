@@ -18,7 +18,6 @@ const {
 } = eventhandlers
 
 
-
 describe('Test command handling and parsing', () => {
 
     afterEach(() => {
@@ -228,3 +227,4 @@ describe('Test logging methods', () => {
     })
 
 })
+
