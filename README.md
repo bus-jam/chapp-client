@@ -12,6 +12,7 @@
 [![Version](https://img.shields.io/badge/Version-1.2.2-brightgreen.svg)](https://github.com/bus-jam/chapp-client#readme)
 [![Build Status](https://travis-ci.com/bus-jam/chapp-client.svg?branch=staging)](https://travis-ci.com/bus-jam/chapp-client)
 [![Maintainability](https://api.codeclimate.com/v1/badges/1dce88fe3053097d08ef/maintainability)](https://codeclimate.com/github/bus-jam/chapp-client/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/1dce88fe3053097d08ef/test_coverage)](https://codeclimate.com/github/bus-jam/chapp-client/test_coverage)
 
 ## Goal
 
